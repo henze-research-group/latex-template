@@ -1,0 +1,165 @@
+\documentclass[defaultstyle,11pt]{thesis}
+
+
+% custom added -- must go first
+\usepackage[table,xcdraw]{xcolor} % support using rowcolor when pasting from table generator
+
+% default packages from CU Boulder's template
+\usepackage{amssymb}		% to get all AMS symbols
+\usepackage{amsmath}
+\usepackage{graphicx}		% to insert figures
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{multirow}
+
+% setup hyperlinks and colors
+\usepackage{hyperref}		
+\hypersetup{
+	colorlinks   = true, %Colours links instead of ugly boxes
+	urlcolor     = blue, %Colour for external hyperlinks
+	linkcolor    = blue, %Colour of internal links
+	citecolor   = blue %Colour of citations
+}
+
+% custom added
+\usepackage{subfiles}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}  % allow margin definition in tables (center images)
+\usepackage[acronym,toc,nomain]{glossaries}
+\loadglsentries{acronyms}
+\makeglossaries % for acronyms
+\renewcommand*{\glspostdescription}{} % Removes dots at the end of each entry.
+\glsnogroupskiptrue % skip spaces in acronym list (that is don't group alphabetically)
+\renewcommand*{\glstextformat}[1]{\textcolor{darkgray}{#1}}  % Hyperlink color of glossary links
+
+% column with ragged right and hyphenation
+\usepackage{array}
+\usepackage{ragged2e}
+
+% table layout settings
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+\newcolumntype{L}[1]{>{\RaggedRight\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\RaggedLeft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{M}[1]{>{\RaggedRight\arraybackslash}m{#1}}
+
+% enum hyperlinks
+\usepackage{enumitem}
+
+% code highlighting
+\usepackage{listings}
+\input{listings-modelica.cfg}
+\lstset{language = modelica,
+	basicstyle=\fontsize{9pt}{10pt}\ttfamily}
+\renewcommand\lstlistingname{Code}
+\renewcommand\lstlistlistingname{Code}
+% color for the background of the code snippets
+\definecolor{aliceblue}{rgb}{0.94, 0.97, 1.0}
+
+%\DeclareCaptionStyle{listing} []{}
+%\captionsetup[lstlisting]{style=listing, labelsep=none}
+
+% landscape pages
+\usepackage{pdflscape}
+\usepackage{afterpage}
+
+%%%%%%%%%%%%   All the preamble material:   %%%%%%%%%%%%
+
+\title{CU Example Prospectus Document}
+
+\author{First Middle}{Last}
+
+      
+\otherdegrees{B.S., University of Colorado, 2016  \\
+		M.S., University of Colorado, 2020}
+
+\degree{Doctor of Philosophy}		%  #1 {long descr.}
+{Ph.D., Architectural Engineering}		%  #2 {short descr.}
+
+
+\dept{Department of}			%  #1 {designation}
+{Civil, Environmental and Architectural Engineering}		  %  #2 {department name}
+
+\advisor{Gregor Henze, Ph.D, P.E.}				{\normalsize } %  #1 {title}
+%{Ph.D., P.E.}																			%  #2 {name}
+
+\reader{Second Advisor , Ph.D.}		    	    %  2nd person to sign thesis
+\readerThree{Third Advisor, Ph.D.}	 	      %  3rd person to sign thesis
+\readerFour{Fourth Advisor, Ph.D.}		      %  4th person to sign thesis
+\readerFive{Fifth Advisor, Ph.D.}		         %  5th person to sign thesis
+
+
+\abstract{  \OnePageChapter	% because it is very short
+
+What is the purpose of this document
+}
+
+\dedication[Dedication]{	% NEVER use \OnePageChapter here.
+To my friends and family
+	}
+
+\acknowledgements{	\OnePageChapter	% *MUST* BE ONLY ONE PAGE!
+	Support Team:
+		Amy Allen
+		Sourav Dey
+		Thibault Marzullo
+	}
+
+% \IRBprotocol{E927F29.001X}	% optional!
+
+\ToCisShort	
+
+\LoFisShort	
+% \emptyLoF	% use this if there is no List of Figures
+
+\LoTisShort	
+% \emptyLoT	% use this if there is no List of Tables
+
+% LIst of listings (i.e., snippets of code)
+\LoLisShort
+% \emptyLoL	% use this if there is no List of Listings (code chunks)
+
+% List of acronyms
+\LoAisShort
+% \emptyLoA	% use this if there are no acronyms
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%       BEGIN DOCUMENT...         %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% path to where the figures are saved
+\graphicspath{{\subfix{figures}}}
+\input macros.tex
+
+% main content
+\input{chapter1-intro.tex}
+
+\input{chapter2-litreview.tex}
+
+\input{chapter3-methodology.tex}
+
+\input{chapter4-results.tex}
+
+\input{chapter5-conclusions.tex}
+
+%%%%%%%%%   then the Bibliography, if any   %%%%%%%%%
+%bibliographystyle{plain}	% or "siam", or "alpha", etc.
+
+% Use IEEEtr to order based on appearance in document. This will make the citations 
+% numbered by the order of appearance.
+
+\bibliographystyle{ieeetr}
+%\nocite{*}		% list all refs in database, cited or not
+
+% Change the name of the bibliography file if needed.
+\bibliography{bibliography}
+
+
+%%%%%%%%%   then the Appendices, if any   %%%%%%%%%
+\appendix
+\input{appendix-a.tex}
+
+\end{document}
+
