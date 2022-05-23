@@ -72,6 +72,8 @@ where $y_i$ is the actual data at timestep, $i$, $\hat{y}_i$ is the modeled (or 
 
 This document also demonstrates the use of a glossary to provide acronym definitions. The definitions are stores in the \texttt{acronyms.tex} file. For example, a \gls{DES} will be fully defined the first time, then after \gls{DES} will be an acronym. This is a nice feature because if text moves then \LaTeX\ will handle when to spell out the acronym first. The glossary also allows for pluralization, for example \glspl{GEB} will be defined as plural, but later uses can still be singular. A \gls{GEB} is already defined. Lastly, if the acronym glossary contains more items than defined in the document, it will only show the ones that are used.
 
+Note that this functionality is not visible in the PDF that is produced attached to the GitHub action. To run this functionality, your \LaTeX\ environment needs to build the glossary first. In TexStudio this is done by adding \texttt{txs:///makeglossaries} to your build setting. On Overleaf, this works out of the box.
+
 \section{Lists and Enumerations}
 
 Example of nested enumeration and lists (also known as itemize in \LaTeX\ speak).
