@@ -5,6 +5,10 @@
 %%	Preparation of Master's Thesis and Doctoral Dissertations
 %% Version 1.00 written by John P. Weiss, 1997
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      version 1.15, Nicholas Long, May 2022 -- Added listings and 
+%%		acronyms to table of contents. Added fourth and 
+%%		fifth readers. This version also updated the cover 
+%%		to focus to be a prospectus.
 %%      version 1.14, Ken Anderson, August 2020 -- removed signature
 %%		page; instead list committee members on title page.
 %%		Changes made to comply with new Graduate School
@@ -35,10 +39,6 @@
 %%	version 1.03, May 1998, Bruce Fast -- Added optional
 %%		\readerThree{}, \readerFour{}; LoF/LoT debugging;
 %%		doublespaced abstract
-%%  version 1.04, May 2022, Added listings and acronyms to
-%%      table of contents. Added fourth and fifth readers.
-%%		This version also updated the cover to focus to be 
-%%		a prospectus.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
