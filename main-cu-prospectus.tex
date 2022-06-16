@@ -63,19 +63,20 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 
+% Method for block comment
+\newcommand{\comment}[1]{}
+
 %%%%%%%%%%%%   All the preamble material:   %%%%%%%%%%%%
 
 \title{CU Example Prospectus Document}
 
 \author{First Middle}{Last}
-
       
 \otherdegrees{B.S., University of Colorado, 2016  \\
 		M.S., University of Colorado, 2020}
 
 \degree{Doctor of Philosophy}		%  #1 {long descr.}
 {Ph.D., Architectural Engineering}		%  #2 {short descr.}
-
 
 \dept{Department of}			%  #1 {designation}
 {Civil, Environmental and Architectural Engineering}		  %  #2 {department name}
@@ -88,22 +89,29 @@
 \readerFour{Fourth Advisor, Ph.D.}		      %  4th person to sign thesis
 \readerFive{Fifth Advisor, Ph.D.}		         %  5th person to sign thesis
 
-
 \abstract{  \OnePageChapter	% because it is very short
 
 What is the purpose of this document
 }
 
+% To create a dedication, remove the \comment{ block below. Don't
+% forget to remove the last curly brace }.
+\comment{
 \dedication[Dedication]{	% NEVER use \OnePageChapter here.
 To my friends and family
-	}
+}
+}
 
+% To create the acknowledgments, remove the \comment{ block below. Don't
+% forget to remove the last curly brace }.
+\comment{
 \acknowledgements{	\OnePageChapter	% *MUST* BE ONLY ONE PAGE!
 	Support Team:
 		Amy Allen
 		Sourav Dey
 		Thibault Marzullo
-	}
+}
+}
 
 % \IRBprotocol{E927F29.001X}	% optional!
 

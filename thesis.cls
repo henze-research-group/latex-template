@@ -1192,10 +1192,10 @@
 		% \th@Approvalpage
 		\typeout{Making Abstract Page}
 		\th@Abstractpage
-		%\typeout{Making Dedication Page}
-		%\th@Dedicationpage
-		%\typeout{Making Acknowledgement Page}
-		%\th@Acknowledgementpage
+		\typeout{Making Dedication Page}
+		\th@Dedicationpage
+		\typeout{Making Acknowledgement Page}
+		\th@Acknowledgementpage
 		\setcounter{th@storepage}{\value{page}}
 		\typeout{Making ToC Page}
 		\th@ToCpage
