@@ -4,6 +4,8 @@
 *.aux
 *.bbl
 *.blg
+*.fdb_latexmk
+*.fls
 *.ist
 *.lof
 *.log
