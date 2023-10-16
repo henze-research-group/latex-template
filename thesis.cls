@@ -5,7 +5,11 @@
 %%	Preparation of Master's Thesis and Doctoral Dissertations
 %% Version 1.00 written by John P. Weiss, 1997
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%      version 1.15, Nicholas Long, May 2022 -- Added listings and 
+%%  version 1.16, Nicholas Long, October 2023 -- Merged in the 
+%%      latest updates from CU's hosted version of this class. 
+%%	    This version is nearly identical as prospectus.cls, but 
+%% 		now includes the PhD fulfillment text.
+%%  version 1.15, Nicholas Long, May 2022 -- Added listings and 
 %%		acronyms to table of contents. Added fourth and 
 %%		fifth readers. This version also updated the cover 
 %%		to focus to be a prospectus.
@@ -42,7 +46,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{thesis}[2020/08/06]	% version 1.14
+\ProvidesClass{thesis}[2023/10/16]	% version 1.16
 
 \typeout{}
 \typeout{--------------------------------------------------------------}
@@ -50,7 +54,7 @@
 \typeout{ +---+ for University of Colorado Ph.D. theses/dissertations.}
 \typeout{ * Conforms to the University of Colorado at Boulder Graduate}
 \typeout{ * School "SPECIFICATIONS for Preparation of Master's Thesis}
-\typeout{ * and Doctoral Dissertations" (rev. May 2020).}
+\typeout{ * and Doctoral Dissertations" (rev. October 2023).}
 \typeout{--------------------------------------------------------------}
 \typeout{ URL: http://www.colorado.edu/oit/software-hardware/tex-latex}
 \typeout{}
@@ -1042,30 +1046,84 @@
 	\end{list}
 	\vfill
 	\begin{center}
-		A prospectus submitted to\\
-		\th@advisortitle\ \th@advisor \\
-		\th@reader\\          % REQUIRED
-		\ifthenelse{\equal{\th@readerThree}{none}}{\relax}
-			{\th@readerThree\\} % optional
-		\ifthenelse{\equal{\th@readerFour}{none}}{\relax}
-			{\th@readerFour\\} % optional
-		\ifthenelse{\equal{\th@readerFive}{none}}{\relax}
-			{\th@readerFive\\} % optional
-		in partial fulfillment of the requirements for the degree of\\
+		A thesis submitted to the\\
+		Faculty of the Graduate School of the\\
+		University of Colorado in partial fulfillment\\
+		of the requirements for the degree of\\
 		\th@fulldegree\\
 		\th@deptorg\ \th@deptname\\
 		\ \th@degreeyear \\
 	\end{center}
+	\begin{flushright}
+	\vfill
+	% List committee members on title page
+	Committee Members:\\
+	\th@advisor, Chair\\  % REQUIRED
+	\th@reader\\          % REQUIRED
+	\ifthenelse{\equal{\th@readerThree}{none}}{\relax}
+		{\th@readerThree\\} % optional
+	\ifthenelse{\equal{\th@readerFour}{none}}{\relax}
+		{\th@readerFour\\} % optional
+	\ifthenelse{\equal{\th@readerFive}{none}}{\relax}
+		{\th@readerFive\\} % optional
+	\ifthenelse{\equal{\th@readerSix}{none}}{\relax}
+		{\th@readerSix\\} % optional
+	\end{flushright}
 	\@thInHeadingfalse
 	\vfill
+}
+\newcommand*{\th@Approvalpage}{
+	\singlespacing
+	\clearpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\begin{center}
+		This thesis entitled:\\
+		\th@title\\
+		written by\
+		\th@fwdname\\
+		has been approved for the\
+		\th@deptorg\
+		\th@deptname
+	\end{center}
+	\vspace*{1mm}
+	\th@signature{\th@advisortitle\ \th@advisor}
+	\th@signature{\th@reader}		% REQUIRED.
+	\ifthenelse{\equal{\th@readerThree}{none}}{\relax}
+                {\th@signature{\th@readerThree}} % optional
+	\ifthenelse{\equal{\th@readerFour}{none}}{\relax}
+                {\th@signature{\th@readerFour}} % optional
+	\ifthenelse{\equal{\th@readerFive}{none}}{\relax}
+                {\th@signature{\th@readerFive}} % optional
+	\ifthenelse{\equal{\th@readerSix}{none}}{\relax}
+                {\th@signature{\th@readerSix}} % optional
+	\th@dateline
+	\vspace*{\fill}
+	\begin{center}
+		The final copy of this thesis has been examined by
+		the signatories, and we find that both the content
+		and the form meet acceptable presentation standards
+		of scholarly work in the above mentioned discipline.
+	\ifthenelse{\equal{\th@IRBprotocol}{none}}{\relax}
+                {\par\vspace*{7mm}IRB protocol \#{\th@IRBprotocol}}
+	\end{center}
+	\vspace*{\fill}
 }
 \newcommand{\th@Abstractpage}{
 	\clearpage
 	\th@AbstractPageStyle
 	\doublespacing	% 1998 revision of Grad School Specs
+	\begin{list}{}{\setlength{\leftmargin}{2em}
+			\setlength{\itemindent}{-2em}
+			\setlength{\topsep}{0pt}
+			\setlength{\itemsep}{0pt}}
+		\item \th@revname\ (\th@degree)
+		\item \th@title
+        \item Thesis directed by \th@advisortitle\ \th@advisor
+	\end{list}
 	\par
 	\vspace*{4\parsep}
-	\begin{center}
+\begin{center}
 		\textbf{\th@ChapHead{Abstract}}
 	\end{center}
 	\th@abstractStash	% finally, the actual abstract
@@ -1091,7 +1149,7 @@
 }
 
 \newcommand{\th@ToCpage}{
-    % Hyperlink color of glossary links
+% Hyperlink color of glossary links
     \renewcommand*{\glstextformat}[1]{\textcolor{blue}{##1}}  
 	\@THshortChapterfalse
 	\if@shortToC
@@ -1101,12 +1159,12 @@
 	\@thInHeadingfalse
 	{\doublespacing
 	\tableofcontents}
-	% Hyperlink color of glossary links
+% Hyperlink color of glossary links
     \renewcommand*{\glstextformat}[1]{\textcolor{darkgray}{##1}}
 }
 
 \newcommand{\th@LoTpage}{
-    % Hyperlink color of glossary links
+% Hyperlink color of glossary links
     \renewcommand*{\glstextformat}[1]{\textcolor{blue}{##1}}  
     \glsunsetall
 	\@THshortChapterfalse
@@ -1120,13 +1178,13 @@
 	{\doublespacing
 	\listoftables}
 	\fi
-	\glsresetall
+\glsresetall
 	% Hyperlink color of glossary links
 	\renewcommand*{\glstextformat}[1]{\textcolor{darkgray}{##1}}
 }
 
 \newcommand{\th@LoFpage}{
-    % Hyperlink color of glossary links
+% Hyperlink color of glossary links
     \renewcommand*{\glstextformat}[1]{\textcolor{blue}{##1}}  
     \glsunsetall
 	\@THshortChapterfalse
@@ -1140,7 +1198,7 @@
 	{\doublespacing
 	\listoffigures}
 	\fi
-	\glsresetall
+\glsresetall
 	% Hyperlink color of glossary links
     \renewcommand*{\glstextformat}[1]{\textcolor{darkgray}{##1}}  
 }
@@ -1187,9 +1245,10 @@
 		\pagenumbering{roman}
 		\typeout{Making Title Page}
 		\th@Titlepage
-		% Note: Approval Page is no longer required.
-		% \typeout{Making Approval Page}
-		% \th@Approvalpage
+		% Note: Approval Page is no longer required, but
+		% enabled for completeness for now.
+		\typeout{Making Approval Page}
+		\th@Approvalpage
 		\typeout{Making Abstract Page}
 		\th@Abstractpage
 		\typeout{Making Dedication Page}
