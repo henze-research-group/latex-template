@@ -9,7 +9,7 @@ The resulting PDF contains examples on how to best use LaTeX for a PhD Prospectu
 
 To use, open `main-cu-prospectus.tex` in your favorite Tex editor such as TexStudio or VSCode. You can also upload this entire package to Overleaf to edit collaboratively online.
 
-One catch is that to see the acronyms the `makeglossaries` command needs to be in the build step. This repo committed the .vscode/settings.json file with the changes. In TexStudio, this will need to be 
+One catch is that to see the acronyms the `makeglossaries` command needs to be in the build step. This repo committed the .vscode/settings.json file with the changes. To use VSCode and LaTeX, install the LaTeX Workshop extension. In TexStudio, this will need to be 
 manually configured as well. Also, it is common to have to call the `pdflatex` command twice to have the glossaries show up correctly.
 
 ```
