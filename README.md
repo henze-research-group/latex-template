@@ -1,4 +1,4 @@
-# CU Boulder's LaTeX Template
+# CU Boulder's LaTeX Templates
 
 This repository contains an updated version of CU's LaTeX class with support for a couple other features including:
 
@@ -49,3 +49,10 @@ An example PDF is in this project [here](./main-cu-prospectus.pdf) and [here](./
 
 The difference between the prospectus and thesis is minimal. The prospectus version contains language that it is just that, a prospectus, and the thesis.cls has the approval page.
 
+## Notes
+
+If using vscode, then the latex-formatter might require an installation of a PERL library called HomeDir. This can be accomplished (on macOS) with the following brew install command.
+
+```
+brew install latexindent
+```
