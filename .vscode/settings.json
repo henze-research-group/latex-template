@@ -1,33 +1,70 @@
 {
-    "latex-workshop.latex.recipes":[
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.recipes": [
         {
-            "name": "Build with glossaries",
+            "name": "Build without glossaries (pdflatex x2)",
             "tools": [
                 "pdflatex",
-                "makeglossaries",
+                "bibtex",
                 "pdflatex",
                 "pdflatex"
             ]
         },
+        {
+            "name": "Build with glossaries (pdflatex x2)",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "makeglossaries",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
     ],
-    "latex-workshop.latex.tools":[
+    "latex-workshop.latex.tools": [
         {
             "name": "pdflatex",
             "command": "pdflatex",
             "args": [
+                "--shell-escape",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "%DOC%"
-            ]
+            ],
+            "env": {}
         },
         {
             "name": "makeglossaries",
             "command": "makeglossaries",
             "args": [
-              "%DOCFILE%"
-            ]
-          }
+                "--shell-escape",
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
     ],
-    "cSpell.words": []
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%",
+        "-y=defaultIndent: '  '"
+    ],
+    "cSpell.words": [
+        "bibtex",
+        "DOCFILE",
+        "latexindent",
+        "makeglossaries",
+        "nonstopmode",
+        "pdflatex",
+        "synctex"
+    ]
 }
