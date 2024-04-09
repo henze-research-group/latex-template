@@ -38,7 +38,6 @@
             "name": "makeglossaries",
             "command": "makeglossaries",
             "args": [
-                "--shell-escape",
                 "%DOCFILE%"
             ],
             "env": {}

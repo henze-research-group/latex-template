@@ -19,24 +19,24 @@
 
 \lstdefinelanguage{modelica}
 {
-	morekeywords=[1]{
-			algorithm,and,annotation,as,assert,block,break,case,class,connect,connector,
-			constant,constrainedby,der,discrete,each,else,elseif,elsewhen,encapsulated,
-			end,enumeration,equality,equation,expandable,extends,external,failure,final,
-			flow,for,function,guard,if,import,in,initial,inner,input,List,local,loop,
-			match,matchcontinue,model,not,operator,Option,or,outer,output,package,parameter,
-			partial,protected,public,record,redeclare,replaceable,return,stream,
-			subtypeof,then,Tuple,type,uniontype,when,while},
-	morekeywords=[2]{true, false},
-	% Do not make true,false keywords because fn(true,x, false ) shows up as fn(true,x, *false*)
-	morekeywords=[3]{optimization,constraint}, % Optimica keywords
-	morekeywords=[4]{objective,startTime,finalTime,initialGuess},
-	sensitive=true,
-	comment=[l]//,
-	morecomment=[s]{/*}{*/},
-	alsodigit={.,-},
-	morestring=[b]',
-	morestring=[b]",
+  morekeywords=[1]{
+      algorithm,and,annotation,as,assert,block,break,case,class,connect,connector,
+      constant,constrainedby,der,discrete,each,else,elseif,elsewhen,encapsulated,
+      end,enumeration,equality,equation,expandable,extends,external,failure,final,
+      flow,for,function,guard,if,import,in,initial,inner,input,List,local,loop,
+      match,matchcontinue,model,not,operator,Option,or,outer,output,package,parameter,
+      partial,protected,public,record,redeclare,replaceable,return,stream,
+      subtypeof,then,Tuple,type,uniontype,when,while},
+  morekeywords=[2]{true, false},
+  % Do not make true,false keywords because fn(true,x, false ) shows up as fn(true,x, *false*)
+  morekeywords=[3]{optimization,constraint}, % Optimica keywords
+  morekeywords=[4]{objective,startTime,finalTime,initialGuess},
+  sensitive=true,
+  comment=[l]//,
+  morecomment=[s]{/*}{*/},
+  alsodigit={.,-},
+  morestring=[b]',
+  morestring=[b]",
 }[keywords,comments,strings]
 
 \definecolor{keywordcolor1}{rgb}{0,0,.4}
@@ -47,19 +47,19 @@
 % \definecolor{listingbgcolor}{rgb}{0.95,0.95,0.95}
 
 \lstset{
-	breaklines=true,
-	language=modelica,
-	basicstyle=\ttfamily,
-	keywordstyle=[1]\color{keywordcolor1}\bfseries,
-	keywordstyle=[2]\color{keywordcolor2},
-	keywordstyle=[3]\color{keywordcolor3}\bfseries,
-	keywordstyle=[4]\color{keywordcolor4},
-	stringstyle=\color{stringcolor},
-	%  backgroundcolor=\color{listingbgcolor},
-	framexleftmargin=5pt,
-	xleftmargin=5pt,
-	xrightmargin=5pt,
-	showstringspaces=false
+  breaklines=true,
+  language=modelica,
+  basicstyle=\ttfamily,
+  keywordstyle=[1]\color{keywordcolor1}\bfseries,
+  keywordstyle=[2]\color{keywordcolor2},
+  keywordstyle=[3]\color{keywordcolor3}\bfseries,
+  keywordstyle=[4]\color{keywordcolor4},
+  stringstyle=\color{stringcolor},
+  %  backgroundcolor=\color{listingbgcolor},
+  framexleftmargin=5pt,
+  xleftmargin=5pt,
+  xrightmargin=5pt,
+  showstringspaces=false
 }
 
 \newcommand{\code}[1]{\lstinline|#1|}
