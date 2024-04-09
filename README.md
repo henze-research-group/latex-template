@@ -51,7 +51,6 @@ One catch is that to see the acronyms the `makeglossaries` command needs to be i
             "name": "makeglossaries",
             "command": "makeglossaries",
             "args": [
-                "--shell-escape",
                 "%DOCFILE%"
             ],
             "env": {}
